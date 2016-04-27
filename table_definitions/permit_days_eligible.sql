@@ -5,6 +5,7 @@ CREATE TABLE permit_days_eligible (
 	PRIMARY KEY(permit_type, provided_by)
 ) ENGINE=InnoDb;
 
+-- Example data
 INSERT INTO permit_days_eligible (permit_type, provided_by, day_eligible) VALUES
 	('Fall 2016 Weekday Only', 'San Jose State University', 'MON'),
 	('Fall 2016 Weekday Only', 'San Jose State University', 'TUE'),
