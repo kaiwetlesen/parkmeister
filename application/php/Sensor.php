@@ -13,14 +13,14 @@ class Sensor {
 		'EGRESS' => true
 		];
 	
-	public serialNumber($sn) {
+	public function serialNumber($sn) {
 		if (is_int($sn)) {
 			$self->serialNumber = $sn;
 		}
 		return $self->serialNumber;
 	}
 
-	public sensorType($type) {
+	public function sensorType($type) {
 		if (is_string($type) && $validSensorTypes[$type] == true) {
 			$self->sensorType = $type;
 		}
