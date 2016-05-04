@@ -4,7 +4,7 @@ use acme;
 */
 create table asccepted_permits(
 	permit_type CHAR(25) NOT NULL,
-	provided_by CHAR(25) COMMENT 'Refers to parking operator table.',
-	effective_on DATE DEFAULT NULL COMMENT 'Date that the parking pass is effective.',
-	expires_on DATE DEFAULT NULL COMMENT 'Date that the parking pass expires.'	
+	pay_type varchar(10) NOT NULL,
+	FOREIGN KEY(permit_type) REFERENCES permit_type(permit_type),
+    FOREIGN KEY(pay_type) REFERENCES pricing_scheme(payment_type)
     )ENGINE = innoDb;
