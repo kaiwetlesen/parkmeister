@@ -4,7 +4,7 @@ use acme;
 */
 create table parking_operator (
 	-- operator_information
-	operator_id int primary key auto_increment, 
+	operator_id int unsigned primary key auto_increment, 
     operator_name varchar (48),
     address varchar (160),
     -- contact_information
@@ -13,5 +13,6 @@ create table parking_operator (
     -- billing_info
     billing_amount int,
     billing_type varchar(48),
-    lot_id int NOT NULL
+    lot_id int NOT NULL,
+    FOREIGN KEY(lot_id) REFERENCES parking_lot(lot_id)
     )ENGINE = innoDb;
