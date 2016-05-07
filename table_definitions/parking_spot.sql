@@ -10,5 +10,5 @@ create table parking_spot (
     lot_id int NOT NULL,
     sensor_id int,
     FOREIGN KEY(lot_id) REFERENCES parking_lot(lot_id),
-    FOREIGN KEY(sensor_id) REFERENCES sensor(serial)
+    FOREIGN KEY(sensor_id) REFERENCES sensor(serial_num)
 )ENGINE = innoDb;

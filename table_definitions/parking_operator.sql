@@ -13,5 +13,5 @@ create table parking_operator (
     -- billing_info
     billing_amount int,
     billing_type varchar(48),
-    lot_id int NOT NULL,
+    lot_id int NOT NULL
     )ENGINE = innoDb;

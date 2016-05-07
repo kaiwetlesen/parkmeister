@@ -1,5 +1,5 @@
 CREATE TABLE parking_lot ( 
-	lot_id INT UNSIGNED NOT NULL,
+	lot_id INT UNSIGNED auto_increment NOT NULL,
 	geo_lat FLOAT(10,6) NOT NULL,
 	geo_long FLOAT(10,6) NOT NULL,
 	lot_type CHAR(25),
