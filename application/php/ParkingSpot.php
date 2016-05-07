@@ -4,6 +4,8 @@
  * Container class for a Sensor entity. Maps over
  * to the sensor table using SensorMapper.
  */
+
+
 class Sensor {
 	private $serialNumber;
 	private $sensorType;
