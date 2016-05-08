@@ -68,6 +68,16 @@ class operator_account{
 		}
 	}
 
+	public function compare($ha){
+		if (is_string($ha)){
+			$theHash = hash('sha256', $ha);
+			if ($theHash==$self->password_hash){
+				return true;
+			}
+			else return false;
+		}
+	}
+
 	public function billing_amount($ba){ // amount owed to us
 		if (is_int($ba)){
 			$self->billing_amount= $ba;
