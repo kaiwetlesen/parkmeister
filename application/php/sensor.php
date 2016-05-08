@@ -17,16 +17,16 @@ class Sensor {
 	
 	public function serialNumber($sn) {
 		if (is_int($sn)) {
-			$self->serialNumber = $sn;
+			$this->serialNumber = $sn;
 		}
-		return $self->serialNumber;
+		return $this->serialNumber;
 	}
 
 	public function sensorType($type) {
 		if (is_string($type) && $validSensorTypes[$type] == true) {
-			$self->sensorType = $type;
+			$this->sensorType = $type;
 		}
-		return $self->sensorType;
+		return $this->sensorType;
 	}
 }
 ?>
