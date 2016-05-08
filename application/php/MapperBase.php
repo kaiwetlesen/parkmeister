@@ -1,9 +1,9 @@
 <?php
 require 'Mapper.php';
 abstract class MapperBase implements Mapper {
-	private static $db;
+	private DbConnection $db;
 
-	public function __construct($db) {
+	public function __construct(DbConnection $db) {
 		$self->db = $db;
 $db->query("use acme");
 $stmt = $db->prepare("show tables");
