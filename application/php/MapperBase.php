@@ -3,7 +3,7 @@ require 'Mapper.php';
 abstract class MapperBase implements Mapper {
 	private DbConnection $db;
 
-	public function __construct(DbConnection $db) {
+	public function __construct(object $db) {
 		$self->db = $db;
 $db->query("use acme");
 $stmt = $db->prepare("show tables");
