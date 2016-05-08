@@ -5,12 +5,13 @@
 		"classes_taken":["CMPE 138", "CMPE 124", "CMPE 131", "MATH 123"],
 		"phone_numbers": {
 			"home": "123-465-1232",
-			"home": "123-465-1232"
+			"work": "123-465-1232"
 		}
 	}';
 	$timData = array(json_decode($jsonString, true));
 
 	print $timData[0]['name'] . "\n";
+	print $timData[0]['name']['phone_numbers']['home'] . "\n";
 ?>
 
 {
