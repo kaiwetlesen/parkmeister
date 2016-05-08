@@ -1,12 +1,15 @@
 <?php
 
+require "MapperBase.php";
+require "DriverAccount.php";
+
 class DriverAccountMapper extends MapperBase {
 
 	private $DA_SELECT_SQL = "SELECT * FROM account WHERE account_num = ? AND account_name = ?";
 	private $DA_INSERT_SQL = "INSERT INTO account(account_name) VALUES (?)";
 	private $DA_UPDATE_SQL = "UPDATE account SET account_name = ? WHERE account_num = ? AND account_name = ?";
 
-	private $HC_SELECT_SQL = "select car_type from has_car_type, account, car_type where car_type_name = car_type and account_num = account_id and account_num = ?";
+	private $HCT_SELECT_SQL = "select car_type from has_car_type, account, car_type where car_type_name = car_type and account_num = account_id and account_num = ?";
 	
 	private $q_searchByAcctNum = "";
 
@@ -14,7 +17,7 @@ class DriverAccountMapper extends MapperBase {
 		parent::__construct($db);
 	}
 
-	public function find($searchArgs) {
+	public function find(array $searchArgs) {
 		$stmt;
 		if (defined($searchArgs["accountNum"]) || defined($searchArgs["account_email"])) {
 			return array($self->load($searchArgs)); # Will only return one result! Always!
@@ -66,11 +69,12 @@ class DriverAccountMapper extends MapperBase {
 		if ($result->account_number() == null) {
 			return;
 		}
-		$stmt = $db->prepare($HC_SELECT_SQL);
+		$stmt = $db->prepare($HCT_SELECT_SQL);
 		$stmt->bind_param(1, $result->account_number(), PDO::PARAM_INT);
 		if (!$stmt->execute()) {
 			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
 	}
 
 	public function create($classRef) {
