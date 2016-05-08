@@ -11,16 +11,25 @@ class DriverAccount{
 	private $email;
 	private $password_hash; //the hash created for the password
 	private $payment_type = [ // valid payment types, three types
-			'cash' => true,
-			'credit card'=> true,
-			'permit'=> true
+			'cash',
+			'credit card',
+			'permit'
 	];
 	private $car_type = [ // valid car types, four types
-			'regular'=> true,   //for car_type_name in car_type table
-			'electrict'=> true,
-			'disabled'=> true,
-			'motorcycle'=> true
+			'regular',   //for car_type_name in car_type table
+			'electric',
+			'disabled',
+			'motorcycle'
 	];
+
+
+	public function __construct($args) {
+		$this->name = $args['name'];
+		$this->email = $args['email'];
+		$this->password_hash = $args['password_hash'];
+		$this->payment_type = array($args['payment_type']);
+		$this->car_type = array($args['car_type']);
+	}
 
 
 	public function name($na){ // user's name
