@@ -29,7 +29,9 @@ function signUp () {
   }
 
 }
-
+function logIn () {
+  //TODO figure out the backend first
+}
 var main = function () {
 
 
@@ -50,6 +52,10 @@ var main = function () {
   $("#signup").submit(function(e){
     e.preventDefault();
     signUp();
+  })
+  $("#login-nav").submit(function(e){
+    e.preventDefault();
+    logIn();
   })
 
 
