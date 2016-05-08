@@ -45,9 +45,9 @@ INSERT INTO parking_operator() VALUES ();
 UPDATE parking_operator SET  WHERE ;*/
 
 -- parking_spot
-SELECT * FROM parking_spot WHERE spot_number = ? AND floor_number = ? AND parking_type = ? AND lot_id = ? AND sensor_id = ?;
-INSERT INTO parking_spot(spot_number, floor_number, parking_type, lot_id, sensor_id) VALUES (?, ?, ?, ?, ?);
-UPDATE parking_spot SET spot_number = ?, floor_number = ?, parking_type = ?, lot_id = ?, sensor_id = ? WHERE spot_number = ? AND floor_number = ? AND parking_type = ? AND lot_id = ? AND sensor_id = ?;
+SELECT * FROM parking_spot WHERE spot_number = ? AND floor_number = ? AND parking_type = ? AND lot_id = ? AND sensor_id = ? AND is_used = ?;
+INSERT INTO parking_spot(spot_number, floor_number, parking_type, lot_id, sensor_id, is_used) VALUES (?, ?, ?, ?, ?, ?);
+UPDATE parking_spot SET spot_number = ?, floor_number = ?, parking_type = ?, lot_id = ?, sensor_id = ?, is_used = ? WHERE spot_number = ? AND floor_number = ? AND parking_type = ? AND lot_id = ? AND sensor_id = ? AND is_used = ?;
 
 -- permit_type
 SELECT * FROM permit_type WHERE permit_type = ? AND provided_by = ? AND effective_on = ? AND expires_on = ?;
@@ -72,3 +72,5 @@ UPDATE sensor SET serial_num = ?, sensor_type = ?, lot_id = ?, is_occupied = ? W
 
 -- QUERIES FOR CUSTOM INFO (modify for needed use cases):
 
+-- Parking lot search
+SELECT lot_name, geo_lat, geo_long, COUNT(row_id) spaces, SQRT(SQUARE(?-geo_lat)+SQUARE(?-geo_long)) distance FROM parking_lot LEFT JOIN parking_spot ON parking_lot.lot_id = parking_spot.row_id WHERE SQRT(SQUARE(?-geo_lat)+SQUARE(?-geo_long)) < ? AND is_used = 0 GROUP BY lot_name, geo_lat, geo_long
