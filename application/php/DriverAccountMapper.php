@@ -28,7 +28,7 @@ class DriverAccountMapper extends MapperBase {
 			$stmt->bindParam(1, $searchArgs["account_name"], PDO::PARAM_STR, 25);
 		}
 		if (!$stmt->execute()) {
-			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
+			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
 		$result = setDataFromResult($stmt);
 		loadCarTypes($result);
@@ -38,17 +38,20 @@ class DriverAccountMapper extends MapperBase {
 	
 	public function load(array $identifyingArgs) {
 		$stmt = null;
-		if (defined($identifyingArgs["accountNum"])) {
-			$stmt = $db->prepare($SQL_FIND_BY_acctNum);
+	print_r(isset($identifyingArgs["accountNum"]));
+		if (isset($identifyingArgs["accountNum"])) {
+			$stmt = $this->db->prepare($SQL_FIND_BY_acctNum);
 			$stmt->bindParam(1, $identifyingArgs["accountNum"], PDO::PARAM_INT);
+echo "this\n";
 		}
-		else if (defined($identifyingArgs["account_email"])) {
+		else if (isset($identifyingArgs["account_email"])) {
 			$stmt = $db->prepare($SQL_FIND_BY_accountEmail);
 			# TODO: Remove bare constant length limit!
 			$stmt->bindParam(1, $identifyingArgs["account_email"], PDO::PARAM_STR, 256);
+echo "that\n";
 		}
 		if (!$stmt->execute()) {
-			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
+			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
 		$result = setDataFromResult($stmt);
 		loadCarTypes($result);
@@ -78,7 +81,7 @@ class DriverAccountMapper extends MapperBase {
 		$stmt = $db->prepare($HCT_SELECT_SQL);
 		$stmt->bind_param(1, $account->account_number(), PDO::PARAM_INT);
 		if (!$stmt->execute()) {
-			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
+			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
 		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
 		$account->car_types((array)$carTypes);
