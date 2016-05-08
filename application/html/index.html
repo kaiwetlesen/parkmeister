@@ -57,6 +57,37 @@
                     <li>
                         <a href="#contact">Contact</a>
                     </li>
+                    <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+
+
+								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                   <div class="form-group">
+                      <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                      <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                   </div>
+                    <div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+										</div>
+										<div class="form-group">
+											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+										</div>
+
+								 </form>
+							</div>
+
+					 </div>
+				</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -77,22 +108,51 @@
                         <h3>Park fast and safe</h3>
                         <hr class="intro-divider">
                         <div class="panel panel-default">
-                          <div class="panel-heading"><h4>Your location:</h4></div>
+                          <div class="panel-heading"><h4>Sign up</h4></div>
                           <div class="panel-body" >
-                             <h5 style="color:#000000;" id="address"></h5>
-                              <h5 style="color:#000000;" id="postal"></h5>
+    <form id="signup">
+      <div class="form-group row">
+        <label for="inputName" class="col-sm-2 form-control-label" style="color:#000000">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputName" placeholder="John">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputName" class="col-sm-2 form-control-label" style="color:#000000">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputLastName" placeholder="Smith">
+        </div>
+      </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 form-control-label" style="color:#000000">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 form-control-label" style="color:#000000">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword" placeholder="********">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="confirmPassword" class="col-sm-2 form-control-label" style="color:#000000">Confirm Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="confirmPassword" placeholder="********">
+    </div>
+  </div>
+  <div class="form-group row">
+
+      <button type="submit" class="btn btn-primary">Sign in</button>
+
+  </div>
+
+</form>
 
                           </div>
                         </div>
 
 
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa  fa-fw"></i> <span class="network-name">Search</span></a>
-                            </li>
-
-
-                        </ul>
                     </div>
                 </div>
             </div>
