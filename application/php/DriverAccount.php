@@ -24,11 +24,13 @@ class DriverAccount{
 
 
 	public function __construct($args) {
-		$this->name = $args['name'];
-		$this->email = $args['email'];
-		$this->password_hash = $args['password_hash'];
-		$this->payment_type = array($args['payment_type']);
-		$this->car_type = array($args['car_type']);
+		if (is_array($args)) {
+			$this->name = $args['name'];
+			$this->email = $args['email'];
+			$this->password_hash = $args['password_hash'];
+			$this->payment_type = array($args['payment_type']);
+			$this->car_type = array($args['car_type']);
+		}
 	}
 
 
