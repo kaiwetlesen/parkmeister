@@ -8,7 +8,7 @@
 class operator_account{
 	private $op_id; 
 	private $op_name; //
-	private $adress; //
+	private $address; //
 	private $email; //
 	private $contact_num; //
 	private $contact_site; //
@@ -32,11 +32,11 @@ class operator_account{
 		return $self->operator_name;
 	}
 
-	public function adress($ad){ // user's officce adress
+	public function address($ad){ // user's officce address
 		if (is_string($ad)){
-			$self->adress= $ad;
+			$self->address= $ad;
 		}
-		return $self->adress;
+		return $self->address;
 	}
 	
 	public function email($em){ // user's email
@@ -93,7 +93,7 @@ class operator_account{
 		return json_encode(Array(
 				'op_id' => $this->op_id,
 				'op_name' => $this->op_name (),
-				'adress' => $this->adress () 
+				'address' => $this->address (),
 				'email' => $this->email (),
 				'contact_num' => $this->contact_num (),
 				'contact_site' => $this->contact_site (),
