@@ -3,7 +3,7 @@ require "DbConnection.php";
 require "DriverAccountMapper.php";
 
 function main() {
-	$session_start();
+	session_start();
 
 
 	#$da_mapper = new DriverAccountMapper($db);
