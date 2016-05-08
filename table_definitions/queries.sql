@@ -9,10 +9,10 @@ SELECT * FROM accepted_permits WHERE permit_type = ? AND pay_type = ?;
 INSERT INTO accepted_permits(permit_type, pay_type) VALUES (?, ?);
 UPDATE accepted_permits SET permit_type = ?, pay_type = ? WHERE permit_type = ? AND pay_type = ?;
 
--- account SKIPPED DUE TO MISSING INFORMATION
-/*SELECT * FROM account WHERE account_num = ? AND account_name = ?;
-INSERT INTO account(account_name) VALUES (?);
-UPDATE account SET account_name = ? WHERE account_num = ? AND account_name = ?;*/
+-- account
+SELECT * FROM account WHERE account_num = ? AND account_name = ? AND account_email = ? AND account_pass = ?;
+INSERT INTO account(account_name, account_email, account_pass) VALUES (?, ?, ?);
+UPDATE account SET account_name = ?, account_email = ?, account_pass = ? WHERE account_num = ? AND account_name = ? AND account_email = ? AND account_pass = ?;
 
 -- car_type
 SELECT * FROM car_type WHERE car_type_name = ?;
