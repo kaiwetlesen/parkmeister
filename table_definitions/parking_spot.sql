@@ -4,6 +4,7 @@ use acme;
 */
 create table parking_spot (
 	-- parking spot
+    row_id int unsigned unique auto_increment primary key, 
 	spot_number int,
     floor_number int,
     parking_type varchar(16),
