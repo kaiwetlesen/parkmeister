@@ -11,5 +11,5 @@ function main() {
 	print_r($_GET);
 }
 
-
+main();
 ?>
