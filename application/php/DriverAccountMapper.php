@@ -13,8 +13,8 @@ class DriverAccountMapper extends MapperBase {
 	
 	private $q_searchByAcctNum = "";
 
-	public function __construct($this->db) {
-		parent::__construct($this->db);
+	public function __construct($db) {
+		parent::__construct($db);
 	}
 
 	public function find(array $searchArgs) {
