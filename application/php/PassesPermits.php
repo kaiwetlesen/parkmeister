@@ -13,7 +13,7 @@ class PassesPermits{
 	private $operator_id;
 	private $validpayment_type =[
 	'cash' => true,
-	'credit card' => true]
+	'credit card' => true];
 	private $permitName;
 	private $start_effective;
 	private $expires;
