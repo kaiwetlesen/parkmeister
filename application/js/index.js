@@ -30,6 +30,19 @@ function signUp () {
 
 }
 
+function logIn(){
+  var email = $("#loginEmail").val();
+  var password = $("#loginPassword").val();
+  var form = '{ "operation":"create",' +
+  '"entity":"session",' +
+  '"params": { '+
+  '"email":'+'"'+email+'",'+
+  '"password":'+'"'+password+'"'+
+  '}}'
+  console.log(form);
+  var obj = JSON.parse(form);
+  console.log(obj);
+}
 var main = function () {
 
 
@@ -50,6 +63,15 @@ var main = function () {
   $("#signup").submit(function(e){
     e.preventDefault();
     signUp();
+  })
+  $("#login-nav").submit(function(e){
+    e.preventDefault();
+    logIn();
+  })
+
+  $('#login-nav').submit(function(e){
+    e.preventDefault();
+    logIn();
   })
 
 

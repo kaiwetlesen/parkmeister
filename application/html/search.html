@@ -9,13 +9,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>Parkmeister - Search</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -48,32 +54,83 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
+
+
+                    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>John</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+        <li><a href="#">My Cars</a>	</li>
+        <li role="separator" class="divider"></li>
+				<li><a href="#">Settings</a>	</li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Log Out</a>	</li>
+      </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
 
-    <h3>Your nearest Parking Spots are:</h3>
-    <!-- Header -->
-    <div class="container-search align-center">
-      <div id='search-results-list'>
+    <div id="wrapper">
 
-      </div>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" style="color:#ffffff;">
+                        Search
+                    </a>
+                </li>
+                <li>
+                    <form action="search">
+                      <div class="form-group">
+                        <select class="styled-select">
+                          <option selected>Select car</option>
+                          <option value="1">Honda Civic</option>
+                          <option value="2">Toyota Corolla</option>
+                          <option value="3">Mazda CX3</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <select class="styled-select">
+                          <option selected>Select a permit</option>
+                          <option value="1">permit 1</option>
+                          <option value="2">permit 2</option>
+                          <option value="3">permit 3</option>
+                        </select>
+                      </div>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h3>Your nearest Parking Spots are:</h3>
+                        <!-- Header -->
+                        <div class="container-search align-center">
+                          <div id='search-results-list'>
+
+                          </div>
+                        </div>
+                      <ul class="list-group" id=searchtest>
+
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-  <ul class="list-group" id=searchtest>
 
-  </ul>
+
     <!-- /.intro-header -->
 
 
@@ -81,7 +138,7 @@
 
 
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
         <div class="container footer">
             <div class="row">
                 <div class="col-lg-12">
@@ -106,7 +163,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <!-- jQuery -->
     <script src="javascript/jquery.js"></script>
@@ -115,7 +172,12 @@
     <script src="javascript/bootstrap.min.js"></script>
 
     <script src="javascript/search.js" ></script>
-
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
     <script type="text/x-handlebars-template" id="search-result-template">
       <li class="list-group-item">
 
