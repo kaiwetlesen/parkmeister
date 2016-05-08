@@ -115,7 +115,7 @@ class operator_account{
 			));
 	}
 
-	public function to_json() {
+	public function from_json() {
 		return json_decode(Array(
 				'op_id' => $this->op_id,
 				'op_name' => $this->op_name (),
