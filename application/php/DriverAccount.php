@@ -5,7 +5,7 @@
 	*yah
 	*/
 
-class driver_account{
+class DriverAccount{
 	private $account_number; // for account_num in table account
 	private $name; // account_name
 	private $email;
