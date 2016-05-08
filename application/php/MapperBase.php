@@ -4,8 +4,11 @@ abstract class MapperBase implements Mapper {
 	private static $db;
 
 	public function __construct($db) {
-		
 		$self->db = $db;
+$db->query("use acme");
+$stmt = $db->prepare("show tables");
+$stmt->execute();
+print_r($stmt->fetchAll());
 	}
 
 	public abstract function find(array $searchArgs);
