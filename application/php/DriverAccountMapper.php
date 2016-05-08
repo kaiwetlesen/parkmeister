@@ -13,12 +13,8 @@ class DriverAccountMapper extends MapperBase {
 	
 	private $q_searchByAcctNum = "";
 
-	public function __construct($db) {
+	public function __construct(DbConnection $db) {
 		parent::__construct($db);
-$db->query("use acme");
-$stmt = $db->prepare("show tables");
-$stmt->execute();
-print_r($stmt->fetchAll());
 	}
 
 	public function find(array $searchArgs) {
