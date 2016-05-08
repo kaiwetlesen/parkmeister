@@ -50,7 +50,8 @@ class DriverAccount{
 
 	public function hash($ha){ // hash for password
 		if (is_string($ha)){
-			$self->password_hash= $ha;
+			$theHash = hash('sha256', $ha)
+			$self->password_hash= $theHash;
 		}
 	}
 
