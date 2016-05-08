@@ -8,7 +8,7 @@ body,
 html {
     width: 100%;
     height: 100%;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 body,
@@ -235,3 +235,22 @@ p.copyright {
         border-top:0 none;
     }
 }
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+
+}
+.styled-select {
+   width: 200px;
+   height: 34px;
+   overflow: hidden;
+   background: url(new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
