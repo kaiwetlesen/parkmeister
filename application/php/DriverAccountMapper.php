@@ -34,7 +34,10 @@ print_r($stmt->fetchAll());
 		if (!$stmt->execute()) {
 			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
-		return setDataFromResult();
+		$result = setDataFromResult($stmt);
+		loadCarTypes($result);
+
+		return $result;
 	}
 	
 	public function load(array $identifyingArgs) {
@@ -53,6 +56,8 @@ print_r($stmt->fetchAll());
 		}
 		$result = setDataFromResult($stmt);
 		loadCarTypes($result);
+
+		return $result;
 	}
 
 	private function setDataFromResult($stmt) {
@@ -66,19 +71,22 @@ print_r($stmt->fetchAll());
 		$result->account_number($data['account_num']);
 		$result->hash($data['passhash']);
 		loadCarTypes($result);
+
 		return $result;
 	}
 
-	private function loadCarTypes($result) {
-		if ($result->account_number() == null) {
+	private function loadCarTypes($account) {
+		if ($account->account_number() == null) {
 			return;
 		}
 		$stmt = $db->prepare($HCT_SELECT_SQL);
-		$stmt->bind_param(1, $result->account_number(), PDO::PARAM_INT);
+		$stmt->bind_param(1, $account->account_number(), PDO::PARAM_INT);
 		if (!$stmt->execute()) {
 			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
+		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
+		$account->car_types((array)$carTypes);
+		return;
 	}
 
 	public function create($classRef) {
