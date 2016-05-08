@@ -9,6 +9,9 @@ class DriverAccountMapper extends MapperBase {
 	private $DA_INSERT_SQL = "INSERT INTO account(account_name) VALUES (?)";
 	private $DA_UPDATE_SQL = "UPDATE account SET account_name = ? WHERE account_num = ? AND account_name = ?";
 
+	private $SQL_FIND_BY_acctNum = "SELECT * FROM account WHERE account_num = ?";
+	private $SQL_FIND_BY_accountEmail = "SELECT * FROM account WHERE account_email = ?";
+
 	private $HCT_SELECT_SQL = "select car_type from has_car_type, account, car_type where car_type_name = car_type and account_num = account_id and account_num = ?";
 	
 	private $q_searchByAcctNum = "";
