@@ -17,16 +17,16 @@ class price{
 
 	public function parking_interval($pi){ // user's name
 		if (is_integer($pi)){
-			$self->parking_interval= $pi;
+			$this->parking_interval= $pi;
 		}
-		return $self->parking_interval;
+		return $this->parking_interval;
 	}
 
 	public function payment_type($pt){ // car's license plate
 		if (is_string($pt)){
-			$self->payment_type= $pt;
+			$this->payment_type= $pt;
 		}
-		return $self->payment_type;
+		return $this->payment_type;
 	}
 
 	public function to_json() { // json_encode

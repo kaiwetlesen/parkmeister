@@ -17,23 +17,23 @@ class ParkingSpot extends ParkingStruct{
 
 	public function opName($on){ // operator_name, forieghn key
 		if (is_string($on)){
-			$self->OperatorName= $on;
+			$this->OperatorName= $on;
 		}
-		return $self->OperatorName;
+		return $this->OperatorName;
 	}
 
 	public function Available($av){ // 
 		if (is_bool($av)){
-			$self->Available= $av;
+			$this->Available= $av;
 		}
-		return $self->Available;
+		return $this->Available;
 	}
 
 	public function SpotNum($sn){ // 
 		if (is_int($sn)){
-			$self->SpotNum= $sn;
+			$this->SpotNum= $sn;
 		}
-		return $self->SpotNum;
+		return $this->SpotNum;
 	}
 
 	public function to_json() { // json_encode

@@ -36,29 +36,29 @@ class DriverAccount{
 
 	public function name($na){ // user's name
 		if (is_string($na)){
-			$self->name= $na;
+			$this->name= $na;
 		}
-		return $self->name;
+		return $this->name;
 	}
 
 	public function email($em){ // user's email
 		if (is_string($em)){
-			$self->email= $em;
+			$this->email= $em;
 		}
-		return $self->email;
+		return $this->email;
 	}
 
 	public function hash($ha){ // hash for password
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
-			$self->password_hash= $theHash;
+			$this->password_hash= $theHash;
 		}
 	}
 
 	public function compare($ha){
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
-			if ($theHash==$self->password_hash){
+			if ($theHash==$this->password_hash){
 				return true;
 			}
 			else return false;
@@ -67,16 +67,16 @@ class DriverAccount{
 
 	public function payment_type($pt){ // what they will pay us with
 		if (is_string($pt) && $payment_type[$pt]= true){
-			$self->payment_type= $pt;
+			$this->payment_type= $pt;
 		}
-		return $self->billing_type;
+		return $this->billing_type;
 	}
 
 	public function car_type($ct){ // car type
 		if (is_string($ct) && $car_type[$ct]= true){
-			$self->car_type= $ct;
+			$this->car_type= $ct;
 		}
-		return $self->car_type;
+		return $this->car_type;
 	}
 
 	public function to_json() {

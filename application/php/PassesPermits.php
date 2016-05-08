@@ -21,51 +21,51 @@ class PassesPermits{
 
 	public function opName($on){ // operator_name, forieghn key
 		if (is_string($on)){
-			$self->operator_name= $on;
+			$this->operator_name= $on;
 		}
-		return $self->operator_name;
+		return $this->operator_name;
 	}
 
 	public function opID($oi){ // 
 		if (is_int($oi)){
-			$self->operator_id= $oi;
+			$this->operator_id= $oi;
 		}
-		return $self->operator_id;
+		return $this->operator_id;
 	}
 
 	public function validpayment_type($vpt){ // 
 		if (is_string($vpt)){
-			$self->validpayment_type= $vpt;
+			$this->validpayment_type= $vpt;
 		}
-		return $self->validpayment_type;
+		return $this->validpayment_type;
 	}
 
 	public function permitName($pn){ // operator_name, forieghn key
 		if (is_string($pn)){
-			$self->permitName= $pn;
+			$this->permitName= $pn;
 		}
-		return $self->permitName;	
+		return $this->permitName;	
 	}
 
 	public function start_effective($start){ // 
 		if (checkdate($start)){
-			$self->start_effective= $start;
+			$this->start_effective= $start;
 		}
-		return $self->start_effective;
+		return $this->start_effective;
 	}
 
 	public function expires($end){ // 
 		if (checkdate($end)){
-			$self->expires= $end;
+			$this->expires= $end;
 		}
-		return $self->expires;
+		return $this->expires;
 	}
 
 	public function pricing($pri){ // 
 		if (is_int($pri)){
-			$self->price= $pri;
+			$this->price= $pri;
 		}
-		return $self->price;
+		return $this->price;
 	}
 
 

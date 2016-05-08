@@ -27,51 +27,51 @@ class operator_account{
 	
 	public function operator_name($on){ // user's name
 		if (is_string($on)){
-			$self->operator_name= $on;
+			$this->operator_name= $on;
 		}
-		return $self->operator_name;
+		return $this->operator_name;
 	}
 
 	public function address($ad){ // user's officce address
 		if (is_string($ad)){
-			$self->address= $ad;
+			$this->address= $ad;
 		}
-		return $self->address;
+		return $this->address;
 	}
 	
 	public function email($em){ // user's email
 		if (is_string($em)){
-			$self->email= $em;
+			$this->email= $em;
 		}
-		return $self->email;
+		return $this->email;
 	}
 
 
 	public function contact_num($cn){ // user's contact phone number
 		if (is_string($cn)){
-			$self->contact_num= $cn;
+			$this->contact_num= $cn;
 		}
-		return $self->contact_num;
+		return $this->contact_num;
 	}
 
 	public function contact_site($cs){ // user's website
 		if (is_string($cs)){
-			$self->contact_site= $cs;
+			$this->contact_site= $cs;
 		}
-		return $self->contact_site;
+		return $this->contact_site;
 	}
 
 	public function hash($ha){ // hash for password
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
-			$self->password_hash= $theHash;
+			$this->password_hash= $theHash;
 		}
 	}
 
 	public function compare($ha){
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
-			if ($theHash==$self->password_hash){
+			if ($theHash==$this->password_hash){
 				return true;
 			}
 			else return false;
@@ -80,23 +80,23 @@ class operator_account{
 
 	public function billing_amount($ba){ // amount owed to us
 		if (is_int($ba)){
-			$self->billing_amount= $ba;
+			$this->billing_amount= $ba;
 		}
-		return $self->billing_amount;
+		return $this->billing_amount;
 	}
 
 	public function billing_type($bt){ // what they will pay us with
 		if (is_string($bt) && $billing_type[$bt]= true){
-			$self->billing_type= $bt;
+			$this->billing_type= $bt;
 		}
-		return $self->billing_type;
+		return $this->billing_type;
 	}
 
 	public function accepted_type($apt){ //  payment type accpeted
 		if (is_string($apt) && $accept_payment_type[$apt]= true){
-			$self->accept_payment_type= $apt;
+			$this->accept_payment_type= $apt;
 		}
-		return $self->accept_payment_type;
+		return $this->accept_payment_type;
 	}
 
 	
