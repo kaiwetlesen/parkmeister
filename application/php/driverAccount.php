@@ -1,0 +1,76 @@
+<?php
+/**
+	*driver account class
+	*for driver account
+	*yah
+	*/
+
+class driver_account{
+	private $account_number; // for account_num in table account
+	private $name; // account_name
+	private $email;
+	private $password_hash; //the hash created for the password
+	private $payment_type = [ // valid payment types, three types
+			'cash' => true,
+			'credit card'=> true,
+			'permit'=> true
+	];
+	private $car_type = [ // valid car types, four types
+			'regular'=> true,   //for car_type_name in car_type table
+			'electrict'=> true,
+			'disabled'=> true,
+			'motorcycle'=> true
+	];
+
+
+	public function name($na){ // user's name
+		if (is_string($na)){
+			$self->name= $na;
+		}
+		return $self->name;
+	}
+
+	public function email($em){ // user's email
+		if (is_string($em)){
+			$self->email= $em;
+		}
+		return $self->email;
+	}
+
+	public function hash($ha){ // hash for password
+		if (is_string($ha)){
+			$self->password_hash= $ha;
+		}
+	}
+
+	public function payment_type($pt){ // what they will pay us with
+		if (is_string($pt) && $payment_type[$pt]= true){
+			$self->payment_type= $pt;
+		}
+		return $self->billing_type;
+	}
+
+	public function car_type($ct){ // car type
+		if (is_string($ct) && $car_type[$ct]= true){
+			$self->car_type= $ct;
+		}
+		return $self->car_type;
+	}
+
+	public function to_json() {
+		return json_encode(Array(
+				'acct_num' => $this->account_number,
+				'name' => $this->name (),
+				'email' => $this->email (),
+				'passhash' => $this->password_hash (),
+				'payment_type' => $this->payment_type (),
+				'car_type' => $this->car_type ()
+
+			));
+	}
+
+
+
+}
+
+?>
