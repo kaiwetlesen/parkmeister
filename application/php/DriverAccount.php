@@ -91,7 +91,17 @@ class DriverAccount{
 			));
 	}
 
+	public function from_json() {
+		return json_decode(Array(
+				'acct_num' => $this->account_number,
+				'name' => $this->name (),
+				'email' => $this->email (),
+				'passhash' => $this->password_hash (),
+				'payment_type' => $this->payment_type (),
+				'car_type' => $this->car_type ()
 
+			));
+	}
 
 }
 

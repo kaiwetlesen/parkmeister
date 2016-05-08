@@ -115,6 +115,21 @@ class operator_account{
 			));
 	}
 
+	public function from_json() {
+		return json_decode(Array(
+				'op_id' => $this->op_id,
+				'op_name' => $this->op_name (),
+				'address' => $this->address (),
+				'email' => $this->email (),
+				'contact_num' => $this->contact_num (),
+				'contact_site' => $this->contact_site (),
+				'passhash' => $this->password_hash (),
+				'bill_them' => $this->billing_amount (),
+				'bill_them_how' => $this->billing_type ()
+
+			));
+	}
+
 
 }
 ?>
