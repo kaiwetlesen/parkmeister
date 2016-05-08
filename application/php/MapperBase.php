@@ -5,10 +5,6 @@ abstract class MapperBase implements Mapper {
 
 	public function __construct($db) {
 		$this->db = $db;
-$db->query("use acme");
-$stmt = $db->prepare("show tables");
-$stmt->execute();
-print_r($stmt->fetchAll());
 	}
 
 	public abstract function find(array $searchArgs);
