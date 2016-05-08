@@ -37,7 +37,8 @@ class operator_account{
 			$self->adress= $ad;
 		}
 		return $self->adress;
-
+	}
+	
 	public function email($em){ // user's email
 		if (is_string($em)){
 			$self->email= $em;
