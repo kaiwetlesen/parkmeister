@@ -8,7 +8,7 @@ create table parking_operator (
     operator_name varchar (48),
     address varchar (160),
     -- contact_information
-    contact_num int, 
+    contact_num varchar(11), 
     contact_site varchar(160),
     -- billing_info
     billing_amount int,
