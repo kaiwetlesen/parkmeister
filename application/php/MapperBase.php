@@ -1,7 +1,7 @@
 <?php
 require 'Mapper.php';
 abstract class MapperBase implements Mapper {
-	private $db = new StdClass();
+	private $db;
 
 	public function __construct($db) {
 		$self->db = $db;
