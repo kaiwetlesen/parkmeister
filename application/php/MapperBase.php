@@ -4,6 +4,7 @@ abstract class MapperBase implements Mapper {
 	private static $db;
 
 	public function __construct($db) {
+		
 		$self->db = $db;
 	}
 

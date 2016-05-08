@@ -15,6 +15,10 @@ class DriverAccountMapper extends MapperBase {
 
 	public function __construct($db) {
 		parent::__construct($db);
+$db->query("use acme");
+$stmt = $db->prepare("show tables");
+$stmt->execute();
+print_r($stmt->fetchAll());
 	}
 
 	public function find(array $searchArgs) {
