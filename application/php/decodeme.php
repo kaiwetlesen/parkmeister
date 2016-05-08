@@ -11,9 +11,10 @@
 	$timData = array(json_decode($jsonString, true));
 
 	print $timData[0]['name'] . "\n";
-	print $timData[0]['name']['phone_numbers']['home'] . "\n";
+	print $timData[0]['phone_numbers']['home'] . "\n";
 ?>
 
+--------------------------------------------------------
 {
 	"query":"parking spot",
 	destination:{
