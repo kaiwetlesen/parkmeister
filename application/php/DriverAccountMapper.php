@@ -22,8 +22,10 @@ class DriverAccountMapper extends MapperBase {
 			# TODO: Remove bare constant length limit!
 			$stmt->bindParam(1, $searchArgs["account_name"], PDO::PARAM_STR, 25);
 		}
-		$db->execute(); # or throw Exception("Failed to execute query -- ");
-		
+		if ($db->execute()) {
+			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
+		}
+		return setDataFromResult();
 	}
 	
 	public function load(array $identifyingArgs) {
@@ -40,10 +42,14 @@ class DriverAccountMapper extends MapperBase {
 		if ($db->execute()) {
 			throw Exception("DriverAccountMapper: Failed to execute query -- ".$db->errorCode().": ".$db->errorInfo());
 		}
-
-		
+		return setDataFromResult();
 	}
 	
+	private function setDataFromResult() {
+		$data = $db->fetch();
+		$result = new DriverAccount();
+	}
+
 	public function create($classRef) {
 		
 	}
