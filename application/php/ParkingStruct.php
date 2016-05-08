@@ -37,6 +37,13 @@ class ParkingStruct {
 		}
 	}
 
+	public function opID($oi){ // 
+		if (is_int($oi)){
+			$self->operator_id= $oi;
+		}
+		return $self->operator_id;
+	}
+
 	public function to_json() { // json_encode
 		return json_encode(Array(
 				'lot_id' => $this->lot_id (),

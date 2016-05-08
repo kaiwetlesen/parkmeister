@@ -19,6 +19,7 @@ class ParkingSpot extends ParkingStruct{
 		if (is_string($on)){
 			$self->OperatorName= $on;
 		}
+		return $self->OperatorName;
 	}
 
 	public function Available($av){ // 
