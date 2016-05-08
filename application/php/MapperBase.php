@@ -4,7 +4,7 @@ abstract class MapperBase implements Mapper {
 	private $db;
 
 	public function __construct($db) {
-		$self->db = $db;
+		$this->db = $db;
 $db->query("use acme");
 $stmt = $db->prepare("show tables");
 $stmt->execute();
