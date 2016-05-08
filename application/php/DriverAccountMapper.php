@@ -20,7 +20,7 @@ class DriverAccountMapper extends MapperBase {
 	public function find(array $searchArgs) {
 		$stmt;
 		if (defined($searchArgs["accountNum"]) || defined($searchArgs["account_email"])) {
-			return array($this->load($searchArgs)); # Will only return one result! Always!
+			return array($self->load($searchArgs)); # Will only return one result! Always!
 		}
 		else if (defined($searchArgs["account_name"])) {
 			$stmt = $db->prepare($SQL_FIND_BY_accountEmail);
