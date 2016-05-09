@@ -1,27 +1,15 @@
 function send_to_php(val) {
-                        $.ajax({
-                            url: 'php/main.php',
-                            type: 'POST',
-                            // Form data
-                            data: function(){
-                                var data = new FormData();
-                                data.append('test', val );
-                                return data;
-                            }(),
-                            success: function (data) {
-                                var obj = JSON.parse(data);
-                                $("#test").val( obj.result );
-                            },
-                            error: function (data) {
-                                console.log(data);
-                            },
-                            complete: function () {
-
-                            },
-                            cache: false,
-                            contentType: false,
-                            processData: false
-                        });
+  $.ajax({
+url: '../php/main.php',
+type: "POST",
+data: {
+message: "test"
+},
+dataType: "JSON",
+success: function(res){
+console.log("Success"+res);
+}
+});
                 }
 
 var passwordsMatches = function(p1,p2){
@@ -49,7 +37,7 @@ function signUp () {
     var obj = JSON.parse(form);
     console.log(obj);
     var json_string = JSON.stringify(obj);
-    send_to_php(json_string);
+    send_to_php();
 
     //TODO: create server request to signup
   }else{
