@@ -80,7 +80,7 @@ class DriverAccount{
 	}
 
 	public function account_number($an) { // read-only account number, with initial set permitted
-		if (is_int($an)) && !isset($this->account_number)) {
+		if (is_int($an) && !isset($this->account_number)) {
 			$this->account_number = $an;
 		}
 		return $this->account_number;
