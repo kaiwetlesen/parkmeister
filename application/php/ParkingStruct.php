@@ -14,42 +14,42 @@ class ParkingStruct {
 	private $operator_id;
 	private $lot_type;
 
-	public function lot_id($li){ // id of the parking lot
+	public function lot_id($li = null){ // id of the parking lot
 		if (is_int($li)){
 			$this->lot_id= $li;
 		}
 		return $this->lot_id;
 	}
 
-	public function geo_lat($lat){ // geo latitude, east to west
+	public function geo_lat($lat = null){ // geo latitude, east to west
 		if (is_float($lat)){
 			$this->geo_lat= $lat;
 		}
 		return $this->geo_lat;
 	}
 
-	public function geo_long($lon){ // geo longitude, north to south
+	public function geo_long($lon = null){ // geo longitude, north to south
 		if (is_float($lon)){
 			$this->geo_long= $lon;
 		}
 		return $this->geo_long;
 	}
 
-	public function lot_name($nam){ // name of parkng structure or lot
+	public function lot_name($nam = null){ // name of parkng structure or lot
 		if (is_string($nam)){
 			$this->lot_name= $nam;
 		}
 		return $this->lot_name;
 	}
 
-	public function opID($oi){ // 
+	public function opID($oi = null){ // 
 		if (is_int($oi)){
 			$this->operator_id= $oi;
 		}
 		return $this->operator_id;
 	}
 	
-	public function lot_type($lt){ // id of the parking lot
+	public function lot_type($lt = null){ // id of the parking lot
 		if (is_string($lt)){
 			$this->lot_name= $lt;
 		}

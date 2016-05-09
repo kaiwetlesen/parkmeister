@@ -8,21 +8,22 @@
 class price{
 	private $parking_interval; // interval in minutes
 	private $price_per_interval; // price to pay per a certain amount per minutes ($6 per 30 mins or $20 for 720 mins (12 hours))
-	private $payment_type = [ // valid payment types
+	private $payment_type = array();
+	/*[ // valid payment types
 			'cash' => true,
 			'credit card'=> true,
 			'permit'=> true
 	];
+*/
 
-
-	public function parking_interval($pi){ // user's name
+	public function parking_interval($pi = null){ // user's name
 		if (is_integer($pi)){
 			$this->parking_interval= $pi;
 		}
 		return $this->parking_interval;
 	}
 
-	public function payment_type($pt){ // car's license plate
+	public function payment_type($pt = null){ // car's license plate
 		if (is_string($pt)){
 			$this->payment_type= $pt;
 		}
