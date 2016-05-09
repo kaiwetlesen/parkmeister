@@ -9,7 +9,12 @@ $db = new DbConnection();
 #$stmt->execute();
 #print_r($stmt->fetchAll());
 $da_mapper = new DriverAccountMapper($db);
-$account = $da_mapper->load(array('accountNum' => '123'));
+try {
+	$account = $da_mapper->load(array('accountNum' => '123'));
+}
+catch (Exception $e) {
+	echo "Exception : ", $e->getMessage(), "\n";
+}
 print_r($account);
 
 echo "Something worked!\n";

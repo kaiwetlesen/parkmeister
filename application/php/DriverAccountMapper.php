@@ -31,7 +31,7 @@ class DriverAccountMapper extends MapperBase {
 			$stmt->bindParam(1, $searchArgs["account_name"], PDO::PARAM_STR, 25);
 		}
 		if (!$stmt->execute()) {
-			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$this->db->errorCode().": ".implode(" ",$this->db->errorInfo()));
+			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
 		}
 		$result = $this->setDataFromResult($stmt);
 		return $result;
@@ -52,7 +52,7 @@ echo "this\n";
 echo "that\n";
 		}
 		if (!$stmt->execute()) {
-			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$this->db->errorCode().": ".implode(" ",$this->db->errorInfo()));
+			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
 		}
 		$result = $this->setDataFromResult($stmt);
 		return $result;
@@ -62,7 +62,7 @@ echo "that\n";
 		if ($stmt->rowCount() != 1) {
 			return null;
 		}
-		$data = $this->db->fetch(PDO::FETCH_ASSOC);
+		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		$result = new DriverAccount();
 		$result->name($data['account_name']);
 		$result->email($data['account_email']);
@@ -80,7 +80,7 @@ echo "that\n";
 		$stmt = $this->db->prepare($HCT_SELECT_SQL);
 		$stmt->bind_param(1, $account->account_number(), PDO::PARAM_INT);
 		if (!$stmt->execute()) {
-			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$this->db->errorCode().": ".implode(" ",$this->db->errorInfo()));
+			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
 		}
 		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
 		$account->car_types((array)$carTypes);

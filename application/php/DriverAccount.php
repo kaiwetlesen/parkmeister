@@ -23,7 +23,7 @@ class DriverAccount{
 	];
 
 
-	public function __construct($args) {
+	public function __construct($args = "") {
 		if (is_array($args)) {
 			$this->name = $args['name'];
 			$this->email = $args['email'];
