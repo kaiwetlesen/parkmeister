@@ -1,0 +1,13 @@
+source accepted_permits.sql
+source account_has_cartype.sql
+source account.sql
+source car_type.sql
+source has_permit_days_eligible.sql
+source has_permit.sql
+source may_park_in.sql
+source parking_lot.sql
+source parking_operator.sql
+source parking_spot.sql
+source permit_type.sql
+source pricing_scheme.sql
+source sensor.sql

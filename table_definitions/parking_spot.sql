@@ -8,9 +8,7 @@ create table parking_spot (
 	spot_number int,
     floor_number int,
     parking_type varchar(16),
-    lot_id int NOT NULL,
-    sensor_id int,
+    lot_id int unsigned NOT NULL,
 	is_used boolean default false,
     FOREIGN KEY(lot_id) REFERENCES parking_lot(lot_id),
-    FOREIGN KEY(sensor_id) REFERENCES sensor(serial_num)
 )ENGINE = innoDb;

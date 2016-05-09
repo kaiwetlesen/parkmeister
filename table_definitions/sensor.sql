@@ -5,5 +5,6 @@ CREATE TABLE sensor (
 	lot_id INTEGER COMMENT 'Associates sensors with a particular lot.',
 	is_occupied BOOLEAN COMMENT 'Indicates whether a sensor sees a car. Only referenced for proximity sensors.',
 	PRIMARY KEY (serial_num),
-    FOREIGN KEY (lot_id) REFERENCES parking_lot(lot_id)
+    FOREIGN KEY (lot_id) REFERENCES parking_lot(lot_id),
+	FOREIGN KEY (pspot_id) REFERENCES parking_spot(row_id)
 ) ENGINE=InnoDB;
