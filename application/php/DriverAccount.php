@@ -10,17 +10,26 @@ class DriverAccount{
 	private $name; // account_name
 	private $email;
 	private $password_hash; //the hash created for the password
-	private $payment_type = [ // valid payment types, three types
+	private $payment_type = array();
+	// valid payment types examples, three types
+	/*
+	$payment_type = [
 			'cash',
 			'credit card',
 			'permit'
 	];
-	private $car_type = [ // valid car types, four types
-			'regular',   //for car_type_name in car_type table
+	*/
+	private $car_type = array();
+	// Example valid car types, four types
+	//for car_type_name in car_type table
+	/*
+	$car_type = [
+			'regular', 
 			'electric',
 			'disabled',
 			'motorcycle'
 	];
+	*/
 
 
 	public function __construct($args = "") {
@@ -34,28 +43,28 @@ class DriverAccount{
 	}
 
 
-	public function name($na){ // user's name
+	public function name($na = null){ // user's name
 		if (is_string($na)){
 			$this->name= $na;
 		}
 		return $this->name;
 	}
 
-	public function email($em){ // user's email
+	public function email($em = null){ // user's email
 		if (is_string($em)){
 			$this->email= $em;
 		}
 		return $this->email;
 	}
 
-	public function hash($ha){ // hash for password
+	public function hash($ha = null){ // hash for password
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
 			$this->password_hash= $theHash;
 		}
 	}
 
-	public function compare($ha){
+	public function compare($ha = null){
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
 			if ($theHash==$this->password_hash){
@@ -65,21 +74,21 @@ class DriverAccount{
 		}
 	}
 
-	public function payment_type($pt){ // what they will pay us with
+	public function payment_type($pt = null){ // what they will pay us with
 		if (is_string($pt) && $payment_type[$pt]= true){
 			$this->payment_type= $pt;
 		}
 		return $this->billing_type;
 	}
 
-	public function car_type($ct){ // car type
+	public function car_type($ct = null){ // car type
 		if (is_string($ct) && $car_type[$ct]= true){
 			$this->car_type= $ct;
 		}
 		return $this->car_type;
 	}
 
-	public function account_number($an) { // read-only account number, with initial set permitted
+	public function account_number($an = null) { // read-only account number, with initial set permitted
 		if (is_int($an) && !isset($this->account_number)) {
 			$this->account_number = $an;
 		}
