@@ -43,13 +43,13 @@ class DriverAccountMapper extends MapperBase {
 		if (isset($identifyingArgs["accountNum"])) {
 			$stmt = $this->db->prepare($this->SQL_FIND_BY_acctNum);
 			$stmt->bindParam(1, $identifyingArgs["accountNum"], PDO::PARAM_INT);
-echo "this\n";
+echo "\n\nthis\n\n";
 		}
 		else if (defined($identifyingArgs["account_email"])) {
 			$stmt = $this->db->prepare($this->SQL_FIND_BY_accountEmail);
 			# TODO: Remove bare constant length limit!
 			$stmt->bindParam(1, $identifyingArgs["account_email"], PDO::PARAM_STR, 256);
-echo "that\n";
+echo "\n\nthat\n\n";
 		}
 		if (!$stmt->execute()) {
 			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
