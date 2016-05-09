@@ -39,17 +39,16 @@ class DriverAccountMapper extends MapperBase {
 	
 	public function load(array $identifyingArgs) {
 		$stmt = null;
-	print_r(isset($identifyingArgs["accountNum"]));
 		if (isset($identifyingArgs["accountNum"])) {
 			$stmt = $this->db->prepare($this->SQL_FIND_BY_acctNum);
 			$stmt->bindParam(1, $identifyingArgs["accountNum"], PDO::PARAM_INT);
-echo "\n\nthis\n\n";
+echo "this\n\n";
 		}
 		else if (defined($identifyingArgs["account_email"])) {
 			$stmt = $this->db->prepare($this->SQL_FIND_BY_accountEmail);
 			# TODO: Remove bare constant length limit!
 			$stmt->bindParam(1, $identifyingArgs["account_email"], PDO::PARAM_STR, 256);
-echo "\n\nthat\n\n";
+echo "that\n\n";
 		}
 		if (!$stmt->execute()) {
 			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
@@ -67,6 +66,7 @@ echo "\n\nthat\n\n";
 		$result->name($data['account_name']);
 		$result->email($data['account_email']);
 		$result->account_number($data['account_num']);
+#echo "DEBUG: account_num is ".$data['account_num']." and is integer? ".is_int($data['account_num']) ? "true":"false"."\n";
 		$result->hash($data['account_password']);
 		$this->loadCarTypes($result);
 
@@ -74,6 +74,8 @@ echo "\n\nthat\n\n";
 	}
 
 	private function loadCarTypes($account) {
+#echo "DEBUG: Retrieving car_types\n";
+#echo "DEBUG: ".$account->account_number()."\n";
 		if ($account->account_number() == null) {
 			return;
 		}
@@ -82,7 +84,9 @@ echo "\n\nthat\n\n";
 		if (!$stmt->execute()) {
 			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
 		}
-		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
+		#$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
+		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+print_r($carTypes);
 		$account->car_types((array)$carTypes);
 		return;
 	}
