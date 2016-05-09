@@ -66,7 +66,7 @@ echo "\n\nDEBUG: load by email\n\n";
 		$result->name($data['account_name']);
 		$result->email($data['account_email']);
 		$result->account_number($data['account_num']);
-#echo "DEBUG: account_num is ".$data['account_num']." and is integer? ".is_int($data['account_num']) ? "true":"false"."\n";
+echo "DEBUG: account_num is ".$data['account_num']." and is integer? ".is_int($data['account_num']) ? "true":"false"."\n";
 		$result->hash($data['account_password']);
 		$this->loadCarTypes($result);
 
@@ -74,8 +74,8 @@ echo "\n\nDEBUG: load by email\n\n";
 	}
 
 	private function loadCarTypes($account) {
-#echo "DEBUG: Retrieving car_types\n";
-#echo "DEBUG: ".$account->account_number()."\n";
+echo "DEBUG: Retrieving car_types\n";
+echo "DEBUG: ".$account->account_number()."\n";
 		if ($account->account_number() == null) {
 			return;
 		}
@@ -85,7 +85,7 @@ echo "\n\nDEBUG: load by email\n\n";
 			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
 		}
 		#$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
-		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$carTypes = $stmt->fetchAll(PDO::FETCH_COLUMN);
 print_r($carTypes);
 		$account->car_types((array)$carTypes);
 		return;
