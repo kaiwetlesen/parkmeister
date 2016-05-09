@@ -1,7 +1,3 @@
-use acme;
--- show tables;
-/* describe test;
-*/
 create table accepted_permits (
   permit_type CHAR(25) NOT NULL,
   pay_type varchar(10) NOT NULL,

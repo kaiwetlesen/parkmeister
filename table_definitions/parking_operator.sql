@@ -1,7 +1,3 @@
-use acme;
--- show tables;
-/* describe test;
-*/
 create table parking_operator (
 	-- operator_information
 	operator_id int unsigned primary key auto_increment, 
@@ -15,6 +11,5 @@ create table parking_operator (
     -- billing_info
     billing_amount int,
     billing_type varchar(48),
-    lot_id int NOT NULL,
-    FOREIGN KEY(lot_id) REFERENCES parking_lot(lot_id)
+    lot_id int NOT NULL
     )ENGINE = innoDb;
