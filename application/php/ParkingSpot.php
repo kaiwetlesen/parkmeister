@@ -15,21 +15,21 @@ class ParkingSpot extends ParkingStruct{
 	private $Available;
 	private $SpotNum;
 
-	public function opName($on){ // operator_name, forieghn key
+	public function opName($on = null){ // operator_name, forieghn key
 		if (is_string($on)){
 			$this->OperatorName= $on;
 		}
 		return $this->OperatorName;
 	}
 
-	public function Available($av){ // 
+	public function Available($av = null){ // 
 		if (is_bool($av)){
 			$this->Available= $av;
 		}
 		return $this->Available;
 	}
 
-	public function SpotNum($sn){ // 
+	public function SpotNum($sn = null){ // 
 		if (is_int($sn)){
 			$this->SpotNum= $sn;
 		}

@@ -14,32 +14,35 @@ class operator_account{
 	private $contact_site; //
 	private $password_hash; //the hash created for the password
 	private $billing_amount; // How much they owes us per month
-	private $billing_type = [ // how they pay us, three wayts
+	private $billing_type = array();
+	/*[ // how they pay us, three wayts
 			'cash' => true,
 			'credit card'=> true,
 			'check'=> true
-	]; 
-	private $accept_payment_type = [ // valid payment types, three ways they can accept
+	];*/ 
+	private $accept_payment_type = array();
+	/*[ // valid payment types, three ways they can accept
 			'cash' => true,
 			'credit card'=> true,
 			'permit'=> true
 	];
-	
-	public function operator_name($on){ // user's name
+	*/
+
+	public function operator_name($on = null){ // user's name
 		if (is_string($on)){
 			$this->operator_name= $on;
 		}
 		return $this->operator_name;
 	}
 
-	public function address($ad){ // user's officce address
+	public function address($ad = null){ // user's officce address
 		if (is_string($ad)){
 			$this->address= $ad;
 		}
 		return $this->address;
 	}
 	
-	public function email($em){ // user's email
+	public function email($em = null){ // user's email
 		if (is_string($em)){
 			$this->email= $em;
 		}
@@ -47,28 +50,28 @@ class operator_account{
 	}
 
 
-	public function contact_num($cn){ // user's contact phone number
+	public function contact_num($cn = null){ // user's contact phone number
 		if (is_string($cn)){
 			$this->contact_num= $cn;
 		}
 		return $this->contact_num;
 	}
 
-	public function contact_site($cs){ // user's website
+	public function contact_site($cs = null){ // user's website
 		if (is_string($cs)){
 			$this->contact_site= $cs;
 		}
 		return $this->contact_site;
 	}
 
-	public function hash($ha){ // hash for password
+	public function hash($ha = null){ // hash for password
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
 			$this->password_hash= $theHash;
 		}
 	}
 
-	public function compare($ha){
+	public function compare($ha = null){
 		if (is_string($ha)){
 			$theHash = hash('sha256', $ha);
 			if ($theHash==$this->password_hash){
@@ -78,21 +81,21 @@ class operator_account{
 		}
 	}
 
-	public function billing_amount($ba){ // amount owed to us
+	public function billing_amount($ba = null){ // amount owed to us
 		if (is_int($ba)){
 			$this->billing_amount= $ba;
 		}
 		return $this->billing_amount;
 	}
 
-	public function billing_type($bt){ // what they will pay us with
+	public function billing_type($bt = null){ // what they will pay us with
 		if (is_string($bt) && $billing_type[$bt]= true){
 			$this->billing_type= $bt;
 		}
 		return $this->billing_type;
 	}
 
-	public function accepted_type($apt){ //  payment type accpeted
+	public function accepted_type($apt = null){ //  payment type accpeted
 		if (is_string($apt) && $accept_payment_type[$apt]= true){
 			$this->accept_payment_type= $apt;
 		}

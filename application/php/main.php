@@ -2,6 +2,17 @@
 require "DbConnection.php";
 require "DriverAccountMapper.php";
 
+$test = $_POST["test"];
+    $test .= "456";
+
+    $arrResult = array(
+        'result' => $test
+    );
+
+    print json_encode($arrResult);
+    die();
+
+
 function main() {
 	session_start();
 

@@ -1,3 +1,29 @@
+function send_to_php(val) {
+                        $.ajax({
+                            url: 'php/main.php',
+                            type: 'POST',
+                            // Form data
+                            data: function(){
+                                var data = new FormData();
+                                data.append('test', val );
+                                return data;
+                            }(),
+                            success: function (data) {
+                                var obj = JSON.parse(data);
+                                $("#test").val( obj.result );
+                            },
+                            error: function (data) {
+                                console.log(data);
+                            },
+                            complete: function () {
+
+                            },
+                            cache: false,
+                            contentType: false,
+                            processData: false
+                        });
+                }
+
 var passwordsMatches = function(p1,p2){
   if (p1==p2){
     return true;
@@ -22,6 +48,8 @@ function signUp () {
     console.log(form);
     var obj = JSON.parse(form);
     console.log(obj);
+    var json_string = JSON.stringify(obj);
+    send_to_php(json_string);
 
     //TODO: create server request to signup
   }else{

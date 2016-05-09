@@ -42,13 +42,21 @@ class DriverAccountMapper extends MapperBase {
 		if (isset($identifyingArgs["accountNum"])) {
 			$stmt = $this->db->prepare($this->SQL_FIND_BY_acctNum);
 			$stmt->bindParam(1, $identifyingArgs["accountNum"], PDO::PARAM_INT);
+<<<<<<< HEAD
 echo "\n\nDEBUG: load by accountNum\n\n";
+=======
+echo "this\n\n";
+>>>>>>> a5e34bac627df7717f9669867d3a3260cfb3d59c
 		}
 		else if (defined($identifyingArgs["account_email"])) {
 			$stmt = $this->db->prepare($this->SQL_FIND_BY_accountEmail);
 			# TODO: Remove bare constant length limit!
 			$stmt->bindParam(1, $identifyingArgs["account_email"], PDO::PARAM_STR, 256);
+<<<<<<< HEAD
 echo "\n\nDEBUG: load by email\n\n";
+=======
+echo "that\n\n";
+>>>>>>> a5e34bac627df7717f9669867d3a3260cfb3d59c
 		}
 		if (!$stmt->execute()) {
 			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
@@ -66,6 +74,7 @@ echo "\n\nDEBUG: load by email\n\n";
 		$result->name($data['account_name']);
 		$result->email($data['account_email']);
 		$result->account_number($data['account_num']);
+#echo "DEBUG: account_num is ".$data['account_num']." and is integer? ".is_int($data['account_num']) ? "true":"false"."\n";
 		$result->hash($data['account_password']);
 		$this->loadCarTypes($result);
 
@@ -73,6 +82,8 @@ echo "\n\nDEBUG: load by email\n\n";
 	}
 
 	private function loadCarTypes($account) {
+#echo "DEBUG: Retrieving car_types\n";
+#echo "DEBUG: ".$account->account_number()."\n";
 		if ($account->account_number() == null) {
 			return;
 		}
@@ -81,7 +92,9 @@ echo "\n\nDEBUG: load by email\n\n";
 		if (!$stmt->execute()) {
 			throw new Exception("DriverAccountMapper: Failed to execute query -- ".$stmt->errorCode().": ".implode(" ",$stmt->errorInfo()));
 		}
-		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
+		#$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC, "DriverAccount");
+		$carTypes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+print_r($carTypes);
 		$account->car_types((array)$carTypes);
 		return;
 	}

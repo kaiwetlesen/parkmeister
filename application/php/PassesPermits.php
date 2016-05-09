@@ -11,57 +11,59 @@ class PassesPermits{
 	private $lot_name;*/
 	private $operator_name;
 	private $operator_id;
-	private $validpayment_type =[
+	private $validpayment_type = array();
+	/*[
 	'cash' => true,
 	'credit card' => true];
+	*/
 	private $permitName;
 	private $start_effective;
 	private $expires;
 	private $price;
 
-	public function opName($on){ // operator_name, forieghn key
+	public function opName($on = null){ // operator_name, forieghn key
 		if (is_string($on)){
 			$this->operator_name= $on;
 		}
 		return $this->operator_name;
 	}
 
-	public function opID($oi){ // 
+	public function opID($oi = null){ // 
 		if (is_int($oi)){
 			$this->operator_id= $oi;
 		}
 		return $this->operator_id;
 	}
 
-	public function validpayment_type($vpt){ // 
+	public function validpayment_type($vpt = null){ // 
 		if (is_string($vpt)){
 			$this->validpayment_type= $vpt;
 		}
 		return $this->validpayment_type;
 	}
 
-	public function permitName($pn){ // operator_name, forieghn key
+	public function permitName($pn = null){ // operator_name, forieghn key
 		if (is_string($pn)){
 			$this->permitName= $pn;
 		}
 		return $this->permitName;	
 	}
 
-	public function start_effective($start){ // 
+	public function start_effective($start = null){ // 
 		if (checkdate($start)){
 			$this->start_effective= $start;
 		}
 		return $this->start_effective;
 	}
 
-	public function expires($end){ // 
+	public function expires($end = null){ // 
 		if (checkdate($end)){
 			$this->expires= $end;
 		}
 		return $this->expires;
 	}
 
-	public function pricing($pri){ // 
+	public function pricing($pri = null){ // 
 		if (is_int($pri)){
 			$this->price= $pri;
 		}
