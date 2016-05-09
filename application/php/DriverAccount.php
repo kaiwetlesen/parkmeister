@@ -81,16 +81,16 @@ class DriverAccount{
 		return $this->billing_type;
 	}
 
-	public function car_type($ct = null){ // car type
-		if (is_string($ct) && $car_type[$ct]= true){
-			$this->car_type= $ct;
+	public function car_type(array $ct = null){ // car type
+		if ($ct != null){
+echo "Setting car_type\n";
+			$this->car_type = $ct;
 		}
 		return $this->car_type;
 	}
 
 	public function account_number($an = null) { // read-only account number, with initial set permitted
 		if (is_int($an) && !isset($this->account_number)) {
-echo "DEBUG: setting account_num to $an\n";
 			$this->account_number = $an;
 		}
 		return $this->account_number;

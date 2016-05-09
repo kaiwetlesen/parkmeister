@@ -15,7 +15,7 @@ try {
 catch (Exception $e) {
 	echo "Exception : ", $e->getMessage(), "\n";
 }
-#print_r($account);
+print_r($account);
 
 #echo "Something worked!\n";
 ?>
