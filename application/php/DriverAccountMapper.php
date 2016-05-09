@@ -67,7 +67,7 @@ echo "\n\nthat\n\n";
 		$result->name($data['account_name']);
 		$result->email($data['account_email']);
 		$result->account_number($data['account_num']);
-		$result->hash($data['passhash']);
+		$result->hash($data['account_password']);
 		$this->loadCarTypes($result);
 
 		return $result;
